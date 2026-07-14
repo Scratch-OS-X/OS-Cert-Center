@@ -1,1 +1,1 @@
-# OS-Cert-Finder
+# OS Cert Finder
