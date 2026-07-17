@@ -10,9 +10,10 @@ if re.fullmatch(pattern, admin):
     if admin == "LHF-557-vvm":
         mdp = input("Mot de Passe ? >>> ")
         if MDP_LHF == mdp:
-            print("Ok")
+            print("\033[32m ✔ Ok\033[0m")
+            print("Mode ADMIN à venir")
         else:
-            pass
+            print("\033[31m ✖ Mot de Passe invalide \033[0m")
     else:
         pass
 else:
