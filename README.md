@@ -1,7 +1,7 @@
 # OS Certificates Center
 
 ## Introduction :
-Tous les codes utilisés par **_Scratch OS certificate center_** sont réunis dans ce dépot.
+Tous les codes utilisés par **_Scratch OS certificate center_** sont réunis dans ce dépot. [En savoir + sur Scratch OS certificates Center](https://github.com/Scratch-OS-X/OS-Certificate-Center)
 
 ## Generateur-de-codes(.py)
 Le fichier [`Generateur-de-codes.py`](/Generateur-de-codes.py) sert à **générer des codes** (ex : `ABC-123-def`)
