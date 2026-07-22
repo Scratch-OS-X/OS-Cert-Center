@@ -1,78 +1,77 @@
-# OS Certificates Center
+# OS Certificate Center (logiciel)
 
 ## Introduction :
-Tous les codes utilisés par **_Scratch OS certificate center_** sont réunis dans ce dépot. [En savoir + sur Scratch OS certificates Center](https://github.com/Scratch-OS-X/OS-Certificate-Center)
+Tous les codes utilisés par **_Scratch OS certificate center_** sont réunis dans ce dépot. [En savoir + sur la certification "Scratch OS Certificates Center"](https://github.com/Scratch-OS-X/OS-Certificate-Center)
 
-## Generateur-de-codes(.py)
-Le fichier [`Generateur-de-codes.py`](/Generateur-de-codes.py) sert à **générer des codes** (ex : `ABC-123-def`)
+## Utilisation :
 
-```Python
-import random
-import string
+#### 1. Cloner le dépôt :
 
-def generer_code():
-    ABC = ''.join(random.choice(string.ascii_uppercase) for _ in range(3))
-    _123 = ''.join(random.choice(string.digits) for _ in range(3))
-    def = ''.join(random.choice(string.ascii_lowercase) for _ in range(3))
-    return f"{ABC}-{_123}-{def}"
-
-print(generer_code())
+```bash
+git clone https://github.com/Scratch-OS-X/OS-Cert-Center.git
 ```
 
-## Cert-Finder(.py) :
-Le fichier [`Cert-Finder.py`](/Cert-Finder.py) sert à **rechercher** des certificats et à obtenir des informations dessus (comme un mini moteur de recherche) à partir du code d'un certificat (ex : `ABC-123-def`)
+#### 2. Aller dans le dossier :
 
-```Python
-import requests
-import os
-import time
-import re
-
-
-
-Certificat = input("Rechercher un certificat (ex : `ABC-123-def`) >>> ")
-
-if re.fullmatch(r"^[A-Z]{3}-\d{3}-[a-z]{3}$", Certificat):
-  if Certificat == "LHF-557-vvm":
-    print(f"Certificat n° \033[1m{Certificat}\033[0m \033[32m ✔ Ok\033[0m")
-    print("Créateur : \033[1m Scratch_2_0_2_4\033[0m \033[34m vérifié \033[0m")
-    print("Nom de l'OS : \033[1m Scratch.OS X\033[m")
-  elif Certificat == "ABC-123-def":
-     print(f"Certificat n° \033[1m{Certificat}\033[0m \033[33m certificat exemple \033[0m")
-  else :
-     print(f"\033[31m ✖ Le certificat \033[1m{Certificat}\033[m \033[31m n'existe pas.\033[0m")
-elif Certificat == "ADMIN" :
-  print("ADMIN Mode")
-  ADMIN = input("Administration >>> ")
-elif Certificat == "help" :
-  print("Commandes : ")
-  print("• Recherche de certificats")
-else:
-    print("\033[31m ✖ Format invalide. Format correct : \033[1m ABC-123-def \033[0m \033[0m")
+```bash
+cd OS-Cert-Center
 ```
 
-## ADMIN(.py)
-Le fichier [`ADMIN.py`](/ADMIN.py) sert à a **modifier** des certificats à partir de leur code (ex : `ABC-123-def`) et d'un mot de passe.
+#### 3. Lancer le programme :
 
-```Python
-import re
-import os
-
-pattern = r"^[A-Z]{3}-\d{3}-[a-z]{3}$"
-admin = input("Certificat >>> ")
-
-MDP_LHF = os.getenv('MDP_LHF_VVM')
-
-if re.fullmatch(pattern, admin):
-    if admin == "LHF-557-vvm":
-        mdp = input("Mot de Passe ? >>> ")
-        if MDP_LHF == mdp:
-            print("\033[32m ✔ Ok\033[0m")
-            print("Mode ADMIN à venir")
-        else:
-            print("\033[31m ✖ Mot de Passe invalide \033[0m")
-    else:
-        print("\033[31m ✖ Non-trouvé. \033[0m")
-else:
-    print("\033[31m ✖ Format invalide. Format correct : \033[1m ABC-123-def \033[0m \033[0m")
+**Sur Mac/Linux :**
+```bash
+python3 Generateur-de-codes.py # pour générer un code style 'ABC-123-def'
+python3 Cert-Finder.py # pour rechercher un certificat
+python3 ADMIN.py # pour modifier des certificats
 ```
+
+**Sur Windows :**
+```bash
+python Generateur-de-codes.py # pour générer un code style 'ABC-123-def'
+python Cert-Finder.py # pour rechercher un certificat
+python ADMIN.py # pour modifier des certificats
+```
+
+#### Récapitulatif - Toutes les commandes :
+
+**Mac/Linux :**
+```bash
+git clone https://github.com/Scratch-OS-X/OS-Cert-Center.git
+cd OS-Cert-Center
+python3 Generateur-de-codes.py
+# ou
+python3 Cert-Finder.py
+# ou
+python3 ADMIN.py
+```
+
+**Windows :**
+```bash
+git clone https://github.com/Scratch-OS-X/OS-Cert-Center.git
+cd OS-Cert-Center
+python Generateur-de-codes.py
+# ou
+python Cert-Finder.py
+# ou
+python ADMIN.py
+```
+
+
+## Mises à jour :
+
+#### 1 Aller dans le dossier :
+
+`cd OS-Cert-Center`
+
+#### 2 Mettre à jour :
+
+`git pull origin main`
+
+#### Récapitulatif - Toutes les commandes :
+
+```bash
+cd OS-Cert-Center
+git pull origin main
+```
+
