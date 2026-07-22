@@ -1,15 +1,17 @@
 import re
-import os
+import hashlib
+
+MDP_LHF_vvm = "7a8f3f8c5e2b1d9c6a4e7f3b8c5a2d1e9f6c4b7a8d5e2f9c6b3a0d7e4f1c8b"
 
 pattern = r"^[A-Z]{3}-\d{3}-[a-z]{3}$"
 admin = input("Certificat >>> ")
 
-MDP_LHF = os.getenv('MDP_LHF_VVM')
-
 if re.fullmatch(pattern, admin):
     if admin == "LHF-557-vvm":
         mdp = input("Mot de Passe ? >>> ")
-        if MDP_LHF == mdp:
+        mdp_hash = hashlib.sha256(mdp.encode()).hexdigest()
+        
+        if MDP_LHF_vvm == mdp_hash:
             print("\033[32m ✔ Ok\033[0m")
             print("Mode ADMIN à venir")
         else:
