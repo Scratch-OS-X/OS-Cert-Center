@@ -1,8 +1,11 @@
+import acceptlicense as l
 import sqlite3
 import re
 
 conn = sqlite3.connect('DB.SQLite')
 cursor = conn.cursor()
+
+l.accept_license()
 
 with open('script.sql', 'r') as f:
     cursor.executescript(f.read())
